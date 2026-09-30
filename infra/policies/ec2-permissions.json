@@ -1,0 +1,27 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "ReadRevisionsAndTheCodeDeployResourceKit",
+            "Effect": "Allow",
+            "Action": ["s3:Get*", "s3:List*"],
+            "Resource": [
+                "arn:aws:s3:::__DEPLOY_BUCKET__",
+                "arn:aws:s3:::__DEPLOY_BUCKET__/*",
+                "arn:aws:s3:::aws-codedeploy-__REGION__/*"
+            ]
+        },
+        {
+            "Sid": "UploadDatabaseDumps",
+            "Effect": "Allow",
+            "Action": ["s3:PutObject"],
+            "Resource": "arn:aws:s3:::__BACKUP_BUCKET__/db/*"
+        },
+        {
+            "Sid": "ReadWordPressParameters",
+            "Effect": "Allow",
+            "Action": ["ssm:GetParameter", "ssm:GetParameters"],
+            "Resource": "arn:aws:ssm:__REGION__:__ACCOUNT__:parameter/swe40006/wordpress/*"
+        }
+    ]
+}
