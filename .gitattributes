@@ -1,0 +1,6 @@
+# Files that run on Linux (EC2) must keep LF line endings
+*.sh   text eol=lf
+*.yml  text eol=lf
+*.php  text eol=lf
+*.conf text eol=lf
+*.json text eol=lf
