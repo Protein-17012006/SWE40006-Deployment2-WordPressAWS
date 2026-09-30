@@ -1,6 +1,7 @@
 # Fails (exit 1) when any file contains a generated secret, the raw AWS account ID or this machine's public IP.
 #   powershell -NoProfile -ExecutionPolicy Bypass -File tests\check-secrets.ps1                 # all listings
-#   powershell -NoProfile -ExecutionPolicy Bypass -File tests\check-secrets.ps1 -Files (git ls-files)
+#   & .\tests\check-secrets.ps1 -Files (git ls-files)     # tracked files; run it in-process, because
+#                                                         # powershell -File cannot pass an array parameter
 param([string[]]$Files = @())
 . "$PSScriptRoot\..\infra\config.ps1"
 . "$PSScriptRoot\..\infra\lib.ps1"
