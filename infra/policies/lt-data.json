@@ -1,0 +1,13 @@
+{
+    "ImageId": "__IMAGE_ID__",
+    "InstanceType": "t3.micro",
+    "KeyName": "swe40006-a2-key",
+    "IamInstanceProfile": { "Name": "CodeDeployDemo-EC2-Instance-Profile" },
+    "SecurityGroupIds": ["__WEB_SG__"],
+    "MetadataOptions": { "HttpTokens": "required", "HttpEndpoint": "enabled" },
+    "Monitoring": { "Enabled": true },
+    "TagSpecifications": [
+        { "ResourceType": "instance", "Tags": [ { "Key": "Name", "Value": "a2-wordpress-asg" }, { "Key": "Project", "Value": "swe40006-a2" } ] },
+        { "ResourceType": "volume", "Tags": [ { "Key": "Name", "Value": "a2-wordpress-asg" }, { "Key": "Project", "Value": "swe40006-a2" } ] }
+    ]
+}
