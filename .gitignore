@@ -1,0 +1,22 @@
+# --- Local-only files: never pushed to the public repository ---
+# Assignment brief / assistant instructions
+# Personal step-by-step guide (Vietnamese)
+HUONG-DAN.md
+# Report, screenshots and listings (may show account details)
+report/
+# Generated secrets and local state
+infra/*.local.*
+*.local.json
+# SSH private keys
+*.pem
+*.ppk
+# Downloaded WordPress release and CodeDeploy bundle
+build/
+
+# --- Node (screenshot tooling, if run inside the repo) ---
+node_modules/
+
+# --- OS / editor ---
+Thumbs.db
+Desktop.ini
+.DS_Store
