@@ -1,0 +1,10 @@
+[
+    {
+        "Type": "fixed-response",
+        "FixedResponseConfig": {
+            "StatusCode": "503",
+            "ContentType": "text/html",
+            "MessageBody": "<!doctype html><html><head><title>Paused</title></head><body style=\"font-family:Arial,sans-serif;max-width:640px;margin:60px auto;line-height:1.5\"><h1>WordPress on AWS &mdash; paused</h1><p>This SWE40006 Deployment Activity 2 environment (Nguyen Huy Hoang, SWS01199) is paused to save AWS credit. As agreed with the lecturer, it is started for grading on request; resuming takes about 15 minutes.</p></body></html>"
+        }
+    }
+]

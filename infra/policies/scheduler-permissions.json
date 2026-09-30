@@ -1,0 +1,6 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        { "Effect": "Allow", "Action": "rds:StopDBInstance", "Resource": "arn:aws:rds:__REGION__:__ACCOUNT__:db:__DB__" }
+    ]
+}

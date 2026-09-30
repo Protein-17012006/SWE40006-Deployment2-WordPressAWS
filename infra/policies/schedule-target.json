@@ -1,0 +1,5 @@
+{
+    "Arn": "arn:aws:scheduler:::aws-sdk:rds:stopDBInstance",
+    "RoleArn": "arn:aws:iam::__ACCOUNT__:role/__SCHEDULE_ROLE__",
+    "Input": "{\"DbInstanceIdentifier\":\"__DB__\"}"
+}
