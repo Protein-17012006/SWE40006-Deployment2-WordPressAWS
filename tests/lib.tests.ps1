@@ -53,5 +53,14 @@ Test-Case 'scripts never pass an unquoted comma list to a command (PowerShell wo
     Assert-True (-not $offenders) ('unquoted comma lists: ' + ($offenders -join '; '))
 }
 
+Test-Case 'resume puts the forward action back before waiting for healthy targets (a target group no listener uses stays "unused")' {
+    $ast = [System.Management.Automation.Language.Parser]::ParseFile((Resolve-Path "$PSScriptRoot\..\infra\resume-for-grading.ps1"), [ref]$null, [ref]$null)
+    $commands = $ast.FindAll({ param($n) $n -is [System.Management.Automation.Language.CommandAst] }, $true)
+    $forward = @($commands | Where-Object { $_.Extent.Text -match 'modify-listener' -and $_.Extent.Text -match 'Type=forward' })
+    $wait = @($commands | Where-Object { $_.GetCommandName() -eq 'Wait-A2' -and $_.Extent.Text -match 'healthy' })
+    Assert-True ($forward.Count -eq 1 -and $wait.Count -eq 1) "expected one forward modify-listener and one healthy-targets wait, found $($forward.Count) and $($wait.Count)"
+    Assert-True ($forward[0].Extent.StartOffset -lt $wait[0].Extent.StartOffset) "modify-listener (line $($forward[0].Extent.StartLineNumber)) runs after the healthy-targets wait (line $($wait[0].Extent.StartLineNumber))"
+}
+
 "`n$($script:passed) passed, $($script:failed) failed"
 if ($script:failed) { exit 1 }
