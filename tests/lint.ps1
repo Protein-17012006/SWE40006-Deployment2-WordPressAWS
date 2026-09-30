@@ -24,5 +24,7 @@ foreach ($f in @($files | Where-Object { $_.Extension -eq '.php' })) {
 }
 & php tests\run.php
 if ($LASTEXITCODE -ne 0) { $failures++ }
+& 'C:\Program Files\Git\bin\bash.exe' tests/deploy-revision.test.sh
+if ($LASTEXITCODE -ne 0) { $failures++ }
 if ($failures) { Write-Host "LINT FAILED ($failures problem(s))"; exit 1 }
 Write-Host "LINT OK ($($files.Count) files checked)"

@@ -1,0 +1,19 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "AccountUploadsRevisions",
+            "Effect": "Allow",
+            "Principal": { "AWS": ["arn:aws:iam::__ACCOUNT__:root"] },
+            "Action": ["s3:PutObject"],
+            "Resource": "arn:aws:s3:::__DEPLOY_BUCKET__/*"
+        },
+        {
+            "Sid": "InstancesDownloadRevisions",
+            "Effect": "Allow",
+            "Principal": { "AWS": ["arn:aws:iam::__ACCOUNT__:role/__INSTANCE_ROLE__"] },
+            "Action": ["s3:Get*", "s3:List*"],
+            "Resource": ["arn:aws:s3:::__DEPLOY_BUCKET__", "arn:aws:s3:::__DEPLOY_BUCKET__/*"]
+        }
+    ]
+}
