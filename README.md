@@ -33,7 +33,7 @@ Task 2, sub-tasks 2.1–2.4, Singapore Region `ap-southeast-1`.
 | `codedeploy/` | The CodeDeploy revision overlay: `appspec.yml`, hook `scripts/`, Apache `config/`, the footer plugin, the pinned WordPress version and `build-revision.ps1` |
 | `infra/` | Numbered AWS CLI scripts (Windows PowerShell 5.1) for every step, `deploy.ps1`, pause/resume/teardown, `policies/` JSON, and `remote/`/`user-data/` shell scripts |
 | `tests/` | PHP unit tests for the footer plugin, PowerShell helper tests, lint (CR check, `bash -n`, ShellCheck, `php -l`) and a secret scan |
-| `docs/` | Design spec, implementation plan, error log and architecture diagram |
+| `docs/` | Error log and the architecture diagram (draw.io) |
 
 ## Run it
 
